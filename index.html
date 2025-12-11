@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="kg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Линзанын Фокусу жана Оптикалык Күчү | Физика 9-класс</title>
+    <!-- Google Fonts: Roboto & Montserrat -->
+    <link href="fonts.googleapis.com" rel="stylesheet">
+    <!-- Custom CSS Styles -->
+    <style>
+        /* General Reset and Base Styles */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            font-family: 'Open Sans', sans-serif; 
+            line-height: 1.6; 
+            color: #333; 
+            background-color: #ffffff; 
+        }
+        .container { 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            padding: 0 20px; 
+        }
+        a { text-decoration: none; color: #007BFF; }
+
+        /* Navigation (Stylish Dark) */
+        nav { 
+            background-color: #0d1a2b; 
+            color: white; 
+            padding: 15px 0; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        nav .container { display: flex; justify-content: space-between; align-items: center; }
+        nav .logo { font-size: 1.5rem; font-weight: 700; color: #4DA6FF; font-family: 'Montserrat', sans-serif; }
+        nav ul { list-style: none; display: flex; }
+        nav ul li a { color: white; padding: 0 15px; transition: color 0.3s; }
+        nav ul li a:hover { color: #4DA6FF; }
+
+        /* Hero Section */
+        header.hero {
+            background: linear-gradient(to right, #004d99, #007BFF);
+            color: white;
+            padding: 160px 0 100px;
+            text-align: center;
+        }
+        header.hero h1 { font-size: 3rem; margin-bottom: 15px; font-family: 'Roboto', sans-serif; font-weight: 700; }
+        header.hero p { font-size: 1.2rem; opacity: 0.9; }
+
+        /* Section Styling */
+        section { padding: 80px 0; }
+        .section-title { 
+            font-size: 2.2rem; 
+            color: #0d1a2b; 
+            margin-bottom: 40px; 
+            text-align: center; 
+            position: relative;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: #007BFF;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .content-box { 
+            background: #f9f9f9; 
+            padding: 30px; 
+            border-radius: 10px; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
+            margin-bottom: 20px;
+        }
+        .content-box h3 { color: #007BFF; margin-top: 20px; font-family: 'Roboto', sans-serif; }
+        .content-box p, .content-box ul { margin-bottom: 10px; }
+
+        /* Image Gallery (Flexbox for adaptation) */
+        .gallery { display: flex; justify-content: space-around; gap: 20px; flex-wrap: wrap; }
+        .gallery-item { flex: 1 1 300px; background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .gallery-item img { width: 100%; height: auto; display: block; }
+        .gallery-item p { padding: 15px; text-align: center; font-size: 0.9rem; background-color: #f1f1f1; }
+
+        /* Table Styling */
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 15px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background-color: #007BFF; color: white; font-weight: 600; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+
+        /* Interactive Section */
+        .formula-box { background-color: #e0f2f1; padding: 20px; border-radius: 8px; border-left: 5px solid #00796b; }
+        .interactive-box { text-align: center; margin-top: 20px; }
+
+        /* Footer */
+        footer { background-color: #0d1a2b; color: white; text-align: center; padding: 40px 0; margin-top: 60px; }
+
+        /* Responsiveness (Mobile adaptation) */
+        @media (max-width: 768px) {
+            nav ul { display: none; } /* Hide menu for clean mobile view */
+            header.hero h1 { font-size: 2.2rem; }
+            .section-title { font-size: 1.8rem; }
+            .gallery { flex-direction: column; }
+            th, td { padding: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Навигация менюсу -->
+    <nav>
+        <div class="container">
+            <div class="logo">Оптика</div>
+            <ul>
+                <li><a href="#intro">Киришүү</a></li>
+                <li><a href="#focus">Фокус</a></li>
+                <li><a href="#power">Оптикалык күч</a></li>
+                <li><a href="#types">Түрлөрү</a></li>
+                <li><a href="#formula">Формула</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Башкы бет (Hero Section) -->
+    <header id="intro" class="hero">
+        <div class="container">
+            <h1>Линзанын Фокусу жана Оптикалык Күчү</h1>
+            <p>Физика сабагы үчүн линзалардын негизги мүнөздөмөлөрү тууралуу кеңири маалымат.</p>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- Киришүү жана аныктама бөлүмү -->
+        <section id="focus">
+            <h2 class="section-title">1. Линзанын Фокусу (Focal Point)</h2>
+            <div class="content-box">
+                <h3>Аныктамасы</h3>
+                <p><strong>Линза</strong> – бул жарыкты сындыруучу тунук нерсе. Анын негизги касиети – жарык нурларын чогултуу же чачуу. Линзанын иштөө принциби жарыктын сынуу законуна негизделген.</p>
+
+                <h3>Башкы фокус (F)</h3>
+                <p>Башкы оптикалык окко (линзанын борбору аркылуу өткөн сызык) параллель түшкөн жарык нурлары линзадан сынгандан кийин бир чекитте кесилишет же бир чекиттен чыгып бараткандай көрүнөт. Ал чекит <strong>башкы фокус (F)</strong> деп аталат.</p>
+                
+                <h3>Фокус аралыгы (f)</h3>
+                <p>Линзанын оптикалык борборунан (O) башкы фокуска чейинки аралык <strong>фокус аралыгы (f)</strong> деп аталат. Ал метр (м) менен ченелет.</p>
+            </div>
+        </section>
+
+        <!-- Сүрөттөр бөлүмү -->
+        <section id="examples">
+            <h2 class="section-title">Линзалардын иштөө диаграммалары</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <!-- Image for Convex Lens Focal Point -->
+                    <img src="data:image/png;base64,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" alt="Чогултуучу линзанын фокусу">
+                    <p><strong>Чогултуучу (дөмпөк) линза:</strong> Нурлар бир чекитке чогулат (чыныгы фокус).</p>
+                </div>
+                <div class="gallery-item">
+                    <!-- Image for Concave Lens Focal Point -->
+                    <img src="data:image/png;base64,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" alt="Чачыратуучу линзанын фокусу">
+                    <p><strong>Чачыратуучу (чуңкур) линза:</strong> Нурлар бир чекиттен чачырап жаткандай көрүнөт (жалган фокус).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Оптикалык күч бөлүмү -->
+        <section id="power">
+            <h2 class="section-title">2. Линзанын Оптикалык Күчү (Optical Power)</h2>
+            <div class="content-box">
+                <p>Линзанын оптикалык күчү анын жарык нурларын сындыруу жөндөмдүүлүгүн мүнөздөйт. Ал фокус аралыгына тескери пропорционалдуу.</p>
+                
+                <h3>Чен бирдиги – Диоптрия (D)</h3>
+                <p>Оптикалык күч <strong>D</strong> тамгасы менен белгиленет жана анын чен бирдиги <strong>Диоптрия (дптр)</strong>. Эгерде фокус аралыгы метр менен өлчөнсө:</p>
+                
+                <div class="formula-box">
+                    <strong>Формула:</strong> $$D = \frac{1}{f}$$
+                </div>
+
+                <h3>Белгилери</h3>
+                <ul>
+                    <li>**Чогултуучу линзанын** оптикалык күчү оң (+) болот. Мисалы, +2 дптр.</li>
+                    <li>**Чачыратуучу линзанын** оптикалык күчү терс (-) болот. Мисалы, -1.5 дптр.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Таблица бөлүмү -->
+        <section id="types">
+            <h2 class="section-title">Линзалардын негизги түрлөрү жана касиеттери</h2>
+            <div class="content-box">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Түрү</th>
+                            <th>Формасы</th>
+                            <th>Нурларды кандай өзгөртөт</th>
+                            <th>Фокус түрү</th>
+                            <th>Оптикалык күчү (D)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Чогултуучу (Дөмпөк)</strong></td>
+                            <td>Ортосу калың, четтери жука</td>
+                            <td>Чогултат (конвергенция)</td>
+                            <td>Чыныгы (Реалдуу)</td>
+                            <td>Оң (+)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Чачыратуучу (Чуңкур)</strong></td>
+                            <td>Ортосу жука, четтери калың</td>
+                            <td>Чачыратат (дивергенция)</td>
+                            <td>Жалган (Виртуалдуу)</td>
+                            <td>Терс (-)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        
+        <!-- Формулалар жана эсептөөлөр бөлүмү -->
+        <section id="formula">
+            <h2 class="section-title">Жука линзанын формуласы</h2>
+            <div class="content-box">
+                <p>Кескиндин кайда жайгашарын табуу үчүн жука линзанын универсалдуу формуласы колдонулат:</p>
+                
+                <div class="formula-box">
+                    <strong>Формула:</strong> $$\frac{1}{d_o} + \frac{1}{d_i} = \frac{1}{f}$$
+                    <p>Мында:</p>
+                    <ul>
+                        <li>$d_o$ – нерседен линзага чейинки аралык.</li>
+                        <li>$d_i$ – линзадан кескинге чейинки аралык.</li>
+                        <li>$f$ – фокус аралыгы.</li>
+                    </ul>
+                </div>
+                <h3>Эскертүү:</h3>
+                <p>Эсептөөлөрдө белгилер эрежесин сактоо маанилүү: чогултуучу линза үчүн $f$ оң, чачыратуучу үчүн $f$ терс мааниге ээ болот. Эгер $d_i$ терс чыкса, анда кескин жалган (виртуалдуу) болот.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Футер (Footer) -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Физика 9-класс. Бардык укуктар корголгон.</p>
+            <p>Заманбап веб-дизайн принциптери менен жасалган.</p>
+        </div>
+    </footer>
+
+    <!-- Simple JS for smooth scrolling (optional but nice touch) -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
